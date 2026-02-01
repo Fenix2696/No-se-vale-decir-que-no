@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Valentine 💘</title>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Preload de la primera imagen (la que se ve al abrir) -->
+  <link rel="preload" as="image" href="images/snoopy-0.png">
+
+  <!-- Preload del audio y video (opcional, ayuda un poco) -->
+  <link rel="preload" as="audio" href="audio/song.mp3" type="audio/mpeg">
+  <link rel="preload" as="video" href="videos/final.mp4" type="video/mp4">
+</head>
+<body>
+
+<main class="wrap">
+
+  <!-- PANTALLA INICIAL -->
+  <section class="card" id="card">
+    <span class="badge">For my love 💌</span>
+
+    <h1 id="title">Tengo que decirte algo mi amor...</h1>
+    <p id="subtitle"></p>
+
+    <div class="media">
+      <img
+        id="heroImg"
+        src="images/snoopy-0.png"
+        alt="Snoopy"
+        decoding="async"
+        fetchpriority="high"
+        draggable="false"
+      />
+    </div>
+
+    <!-- Contenedor centrado de botones -->
+    <div class="buttons" id="buttons">
+      <button id="btnYes" class="btn yes" type="button">Sí</button>
+      <button id="btnNo" class="btn no" type="button">No</button>
+    </div>
+
+    <p class="hint"></p>
+  </section>
+
+  <!-- PANTALLA FINAL -->
+  <section class="card hidden" id="final">
+    <span class="badge">SIIIIII 💘</span>
+
+    <h1>Sabía que me amas💞</h1>
+    <p>Te amo mucho mi niña ❤️❤️❤️</p>
+
+    <div class="media">
+      <video
+        id="finalVideo"
+        src="videos/final.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
+
+    <button id="btnRestart" class="btn yes big" type="button">Do it again💕</button>
+  </section>
+
+</main>
+
+<audio id="bgMusic" src="audio/song.mp3" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
