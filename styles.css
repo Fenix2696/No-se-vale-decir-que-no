@@ -1,18 +1,34 @@
 * { box-sizing: border-box; }
 
+html, body{
+  height: 100%;
+}
+
 body{
   margin: 0;
   font-family: system-ui, sans-serif;
   background: linear-gradient(135deg, #ff4d6d, #c9184a);
   color: white;
-  overflow: hidden;
+
+  /* ✅ IMPORTANTE: permitir scroll en celular */
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .wrap{
-  min-height: 100vh;
+  /* ✅ Mejor para móvil que 100vh (evita corte por barra del navegador) */
+  min-height: 100svh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* ✅ padding para que no se corte en notch / barras */
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    18px
+    calc(18px + env(safe-area-inset-bottom));
 }
 
 .card{
@@ -36,10 +52,16 @@ body{
 }
 
 .buttons{
-  position: relative;   /* CLAVE */
+  /* ✅ si ya aplicaste el fix de NO random dentro de .buttons */
+  position: relative;
   width: 100%;
-  height: 120px;        /* zona segura para moverse */
+  height: 120px;
   margin-top: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
 .btn{
