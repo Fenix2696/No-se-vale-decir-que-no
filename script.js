@@ -40,22 +40,27 @@ function clamp(n, min, max){
 
 // 🔒 Movimiento seguro (NO sale del viewport)
 function moveNoSafe(){
+  const container = document.querySelector(".buttons");
+
+  const cw = container.offsetWidth;
+  const ch = container.offsetHeight;
+
   const bw = btnNo.offsetWidth;
   const bh = btnNo.offsetHeight;
 
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
+  const padding = 10;
 
-  const margin = 10;
+  const maxX = cw - bw - padding;
+  const maxY = ch - bh - padding;
 
-  const x = Math.random() * (vw - bw - margin * 2) + margin;
-  const y = Math.random() * (vh - bh - margin * 2) + margin;
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
 
-  btnNo.style.position = "fixed";
+  btnNo.style.position = "absolute";
   btnNo.style.left = `${x}px`;
   btnNo.style.top = `${y}px`;
-  btnNo.style.zIndex = 9999;
 }
+
 
 btnNo.addEventListener("click", () => {
   title.textContent = phrases[noCount % phrases.length];
@@ -84,3 +89,6 @@ btnYes.addEventListener("click", () => {
 btnRestart.addEventListener("click", () => {
   location.reload();
 });
+
+
+btnNo.style.position = "static";

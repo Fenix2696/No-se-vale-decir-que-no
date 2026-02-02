@@ -36,9 +36,9 @@ body{
 }
 
 .buttons{
-  display: flex;
-  justify-content: center;
-  gap: 16px;
+  position: relative;   /* CLAVE */
+  width: 100%;
+  height: 120px;        /* zona segura para moverse */
   margin-top: 12px;
 }
 
